@@ -1,4 +1,4 @@
-html {
+body {
     font-size : 62.5%;
   }
   
@@ -12,7 +12,7 @@ html {
 }
 
 .flower {
-    height: 500px;
-    margin-left: 300px;
-    margin-top: 200px;
+    height: 40rem;
+    margin-left: 35rem;
+    margin-top: 45rem;
 }

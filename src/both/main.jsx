@@ -4,13 +4,17 @@ import style from './main.module.css'
 
 const main = () => {
   return (
-  <div className={style.mainbg}>
+    <body className={style.mainbg}>
+
+  <div >
   <nav>
     <Link to='/quizone'>
     <img src="https://lh3.google.com/u/0/d/1RhG4ktUGAQxRiPcJQeDX16FWTRDmv-uz=w2880-h1376-iv1" alt="flower" className={style.flower}></img>
     </Link>
   </nav>
 </div>
+
+</body>
   );
 };
 
