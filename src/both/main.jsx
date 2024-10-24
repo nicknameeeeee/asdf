@@ -1,21 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import style from './main.module.css'
+import style from './main.module.css';
 
-const main = () => {
+const Main = () => {
+  const text = ["1", "2", "3"];
+  const [nowindex, setnowIndex] = useState(0);
+  const [count, nextcount] = useState(0);
+  const [visible, setvisible] = useState(true)
+  const max = text.length;
+
+  const changeText = () => {
+    if (count < max - 1) {
+      setnowIndex((prevIndex) => (prevIndex + 1));
+      nextcount(count + 1);
+    } else {
+      setvisible(false)
+    }
+  };
+
+  const spaceon = (e) => {
+    if (e.code === "Space") {
+      changeText();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", spaceon);
+    return () => {
+      window.removeEventListener("keydown", spaceon);
+    };
+  }, []);
+
   return (
-    <body className={style.mainbg}>
+    <div>
+      <div className={style.boxbox} >
+        <div className={style.describe}
+        >{text[nowindex]}</div>
+        <input
+          type="button"
+          value="텍스트 변경"
+          onClick={changeText}
+          className={style.nexttext}
+        />
+      </div>
 
-  <div >
-  <nav>
-    <Link to='/quizone'>
-    <img src="https://lh3.google.com/u/0/d/1RhG4ktUGAQxRiPcJQeDX16FWTRDmv-uz=w2880-h1376-iv1" alt="flower" className={style.flower}></img>
-    </Link>
-  </nav>
-</div>
-
-</body>
+      <div>
+        <Link to='/quizone'>
+          <button>gotoquiz</button>
+        </Link>
+      </div>
+    </div>
   );
 };
 
-export default main;
+export default Main;
