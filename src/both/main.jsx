@@ -56,7 +56,10 @@ const Main = () => {
       )}
       <div>
         <Link to="/quizone">
-          <button>gotoquiz</button>
+          <button>quiz1</button>
+        </Link>
+        <Link to="/quiztwo">
+        <button>quiz2</button>
         </Link>
       </div>
     </div>

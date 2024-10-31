@@ -12,7 +12,7 @@ const Main = () => {
   const getValueInText = () => {
     const answer = "으아아";
     if (input === answer) {
-      alert("correct");
+      alert("정답입니다! \n\n 다음 문제의 비밀번호는 1234입니다.");
     } else {
       alert("wrong");
     }
