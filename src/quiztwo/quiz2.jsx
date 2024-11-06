@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import style from "./quiz2.module.css"
 
 const Main = () => {
 
@@ -58,21 +59,21 @@ const Main = () => {
       }
     }
 
-
-
   return (
     <div>
       <nav>
         <Link to="/">
-          <button>Go to main</button>
+          <button className={style.main}>Go to main</button>
         </Link>
       </nav>
 
       {/*잠금 코드*/}
-
+<div>
       {lockvisible &&  
-      <div>
+      <div className={style.boxbox}>
+      <div className={style.describe}>
           <input
+            className={style.password}
             type="text"
             placeholder="잠금"
             value={lockinput}
@@ -82,6 +83,7 @@ const Main = () => {
       <input type="button" value="입력" onClick={() => { 
       activeButton2();
       }}/>
+      </div>
       </div>
 }
 
@@ -100,6 +102,7 @@ const Main = () => {
       }}/>
       </div>
 }
+</div>
 
     </div>
 

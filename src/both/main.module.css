@@ -1,6 +1,7 @@
 body {
     font-size : 62.5%;
     position: relative;
+    overflow: hidden;
   }
   
 .mainbg {
@@ -30,8 +31,13 @@ body {
     display: flex;
     font-size: 1.3rem;
     }
-    .nexttext {
-        opacity: 0%;
-        position: absolute;
-        display: flex;
+.nexttext {
+    opacity: 0%;
+    position: absolute;
+    display: flex;
     }
+.reset {
+    float: right;
+    margin-top: 53%;
+}
+

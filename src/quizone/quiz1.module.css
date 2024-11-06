@@ -1,0 +1,25 @@
+body {
+    font-size : 62.5%;
+    position: relative;
+  }
+
+.box {
+    text-align: center;
+}
+.quiz {
+    font-size: 5rem;
+}
+.input {
+    font-size: 3rem;
+    display: inline;
+    border-width: 1px;
+    border-radius: 0.5rem;
+}
+.input::placeholder {
+    font-size: 2rem;
+    align-content: center;
+}
+.button {
+    font-size: 2rem;
+    display: inline;
+}

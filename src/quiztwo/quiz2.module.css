@@ -2,9 +2,24 @@ body {
     font-size : 62.5%;
     position: relative;
   }
-
+  .main {
+    position: relative;
+    align-content: center;
+  }
   .boxbox {
     display: flex;
     justify-content: center;
     align-content: center;
 }
+
+.describe {
+  box-shadow: 3px 3px 5px 3px #dadce0;
+  border-radius: 0.5rem;
+  margin: 5rem;
+  padding: 0.3rem 0.5rm 0.3rem 0.5rem;
+  position: absolute;
+  display: flex;
+  font-size: 1.3rem;
+  align-content: center;
+  text-align: center;
+  }
