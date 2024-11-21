@@ -37,6 +37,12 @@ const Main = () => {
 
   const reset = (e) => {
     sessionStorage.setItem('visible', 'true');
+    sessionStorage.setItem('lockvisible1', 'true')
+    sessionStorage.setItem('visible1', 'false')
+    sessionStorage.setItem('lockvisible2', 'true')
+    sessionStorage.setItem('visible2', 'false')
+    sessionStorage.setItem('lockvisible3', 'true')
+    sessionStorage.setItem('visible3', 'false')
   }
 
   return (
@@ -65,6 +71,12 @@ const Main = () => {
         </Link>
         <Link to="/quiztwo">
           <button>quiz2</button>
+        </Link>
+        <Link to="/quizthree">
+          <button>quiz3</button>
+        </Link>
+        <Link to="/quizfour">
+          <button>quiz4</button>
         </Link>
       </div>
       <button

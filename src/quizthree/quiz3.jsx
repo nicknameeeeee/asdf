@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import style from "./quiz2.module.css"
+import style from "./quiz3.module.css"
 
 const Main = () => {
 
   /*문제*/
 
   const [input, setInputValue] = useState(""); 
-  const [visible1, setvisible1] = useState(sessionStorage.getItem('visible1') !== 'false');
+  const [visible2, setvisible2] = useState(sessionStorage.getItem('visible2') !== 'false');
 
   const Change = (e) => {
     setInputValue(e.target.value);
   };
 
   const getValueInText = () => {
-    const answer = "2";
+    const answer = "으아아";
     if (input === answer) {
       alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.");
     } else {
@@ -32,7 +32,7 @@ const Main = () => {
     }
     
     /*잠금*/
-    const [lockvisible1, setlockvisible1] = useState(sessionStorage.getItem('lockvisible1') !== 'false');
+    const [lockvisible2, setlockvisible2] = useState(sessionStorage.getItem('lockvisible2') !== 'false');
     const [lockinput, setlockinput] = useState("");
 
     const lockChange = (e) => {
@@ -40,12 +40,12 @@ const Main = () => {
     };
 
     const password = () => {
-      const psword = "1234";
+      const psword = "2345";
       if (lockinput === psword) {
-        setlockvisible1(false)
-        sessionStorage.setItem('lockvisible1', 'false');
-        setvisible1(true);
-        sessionStorage.setItem('visible1', 'true');
+        setlockvisible2(false)
+        sessionStorage.setItem('lockvisible2', 'false');
+        setvisible2(true);
+        sessionStorage.setItem('visible2', 'true');
         alert("잠금이 해제되었습니다.")
       } else {
         alert("비밀번호가 틀렸습니다!");
@@ -71,7 +71,7 @@ const Main = () => {
 
       {/*잠금 코드*/}
 <div>
-      {lockvisible1 &&  
+      {lockvisible2 &&  
       <div className={style.boxbox}>
       <div className={style.describe}>
           <input
@@ -90,7 +90,7 @@ const Main = () => {
 }
 
       {/*문제 코드*/}
-      {visible1 && 
+      {visible2 && 
             <div className={style.box}>
             <h1 className={style.quiz}> 1 + 1 은?</h1>
             <input
