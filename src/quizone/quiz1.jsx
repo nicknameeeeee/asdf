@@ -35,7 +35,7 @@ const Main = () => {
         </Link>
       </nav>
       <div className={style.box}>
-      <h1 className={style.quiz}> 1 + 1 은?</h1>
+      <div className={style.quiz}></div>
       <input
         className={style.input}
         type="text"

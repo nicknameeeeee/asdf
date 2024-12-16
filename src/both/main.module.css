@@ -1,43 +1,76 @@
-body {
-    font-size : 62.5%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-.mainbg {
-    background-color: black;
-    margin: 0rem;
-    height: 100vh;
-    width: 100vw;
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 62.5%;
 }
 
-.quiz1 {
-    background-color: black;
+body {
+    position: relative;
+    overflow: hidden;
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .boxbox {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    margin-top: 40rem;
 }
+
 .describe {
     box-shadow: 3px 3px 5px 3px #dadce0;
     border-radius: 0.5rem;
     margin: 5rem;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     width: 80rem;
     height: 50rem;
     position: absolute;
     display: flex;
     font-size: 1.3rem;
-    }
+    background-color: white;
+    backdrop-filter: blur(10px);
+}
+
 .nexttext {
-    opacity: 0%;
+    opacity: 0;
     position: absolute;
     display: flex;
-    }
+}
+
+.q1object {
+    display: flex;
+    position: absolute;
+    margin-left: 50rem;
+    margin-top: 62rem;
+    width: 14rem;
+}
+
+.q2object {
+    display: flex;
+    position: absolute;
+    margin-left: 47rem;
+    margin-top: 35rem;
+    width: 20rem;
+}
+
+.q3object {
+    display: flex;
+    position: absolute;
+    margin-left: 82rem;
+    margin-top: 58rem;
+    width: 25rem;
+}
+.q4object {
+    display: flex;
+    position: absolute;
+    margin-left: 74rem;
+    margin-top: 41rem;
+    width: 10rem;
+}
 .reset {
     float: right;
     margin-top: 53%;
 }
-
