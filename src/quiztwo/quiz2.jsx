@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import style from "./quiz2.module.css"
+import style from "./quiz2.module.css";
+import modal from './question.png';
 
 const Main = () => {
 
@@ -63,14 +64,13 @@ const Main = () => {
 
   return (
     <div>
-      <nav>
-        <Link to="/">
-          <button className={style.main}>Go to main</button>
-        </Link>
-      </nav>
-
+          <img 
+            className={style.modal}
+            src={modal} 
+            alt="modal">
+            </img>
       {/*잠금 코드*/}
-<div>
+    <div>
       {lockvisible1 &&  
       <div className={style.boxbox}>
       <div className={style.describe}>
@@ -91,27 +91,35 @@ const Main = () => {
 
       {/*문제 코드*/}
       {visible1 && 
+            <div className={style.main}>
             <div className={style.box}>
-            <h1 className={style.quiz}> 1 + 1 은?</h1>
+              <div className={style.content}>
+                으아아
+              </div>
             <input
               className={style.input}
               type="text"
-              placeholder="으아아"
+              placeholder="정답을 입력해주세요"
               value={input}
               onChange={Change}
               onKeyDown={(e) => activeEnter(e)}
             />
             <input
             type="button"
-            value="으아아"
+            value="정답 입력"
             className={style.button}
             onClick={() => { 
             activeButton();
             }}/>
             </div>
+          </div>
 }
+<nav>
+        <Link to="/">
+          <button>뒤로가기</button>
+        </Link>
+      </nav>
 </div>
-
     </div>
 
   );

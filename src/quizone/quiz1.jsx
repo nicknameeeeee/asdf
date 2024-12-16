@@ -11,7 +11,7 @@ const Main = () => {
   };
 
   const getValueInText = () => {
-    const answer = "2";
+    const answer = "어차피 난 혼자였지";
     if (input === answer) {
       alert("정답입니다! \n\n 다음 문제의 비밀번호는 1234입니다.");
     } else {
@@ -31,6 +31,9 @@ const Main = () => {
   return (
     <div className={style.main}>
       <div className={style.box}>
+        <div className={style.content}>
+          노래 가사 맞추기<br /> <br />오늘 밤은 삐딱하게 <br /> 내버려둬 <br />ㅁㅁㅁ ㅁ ㅁㅁㅁㅁ<br />아무도 없어, 다 의미 없어<br />사탕 발린 위로 따윈 집어치워<br />오늘 밤은 삐딱하게
+        </div>
       <img 
       className={style.modal}
       src={modal} 

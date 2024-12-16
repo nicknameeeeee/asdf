@@ -37,31 +37,31 @@ body {
 .q1object {
     display: flex;
     position: absolute;
-    margin-left: 50rem;
-    margin-top: 62rem;
+    margin-left: 54rem;
+    margin-top: 67rem;
     width: 14rem;
 }
 
 .q2object {
     display: flex;
     position: absolute;
-    margin-left: 47rem;
-    margin-top: 35rem;
+    margin-left: 50rem;
+    margin-top: 40rem;
     width: 20rem;
 }
 
 .q3object {
     display: flex;
     position: absolute;
-    margin-left: 82rem;
-    margin-top: 58rem;
+    margin-left: 88rem;
+    margin-top: 64rem;
     width: 25rem;
 }
 .q4object {
     display: flex;
     position: absolute;
-    margin-left: 74rem;
-    margin-top: 41rem;
+    margin-left: 79rem;
+    margin-top: 44rem;
     width: 10rem;
 }
 .reset {
