@@ -1,25 +1,75 @@
-body {
-    font-size : 62.5%;
+.main {
+    font-size: 62.5%;
     position: relative;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    backdrop-filter: blur(5px); /* 흐림 효과 */
+}
 
 .box {
     text-align: center;
 }
-.quiz {
-    font-size: 5rem;
+
+.modal {
+    position: relative;
+    width: 60rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
 }
+
 .input {
-    font-size: 3rem;
-    display: inline;
-    border-width: 1px;
+    font-size: 2rem;
+    border: 1px solid #ccc;
     border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 80%;
+    margin: 1rem 0;
 }
+
 .input::placeholder {
-    font-size: 2rem;
-    align-content: center;
+    font-size: 1.6rem;
+    color: #999;
 }
+
 .button {
-    font-size: 2rem;
-    display: inline;
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+nav button {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #6c757d;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #5a6268;
+}
+
+.content {
+    display: flex;
+    position: absolute;
+    margin-top: 10rem;
 }

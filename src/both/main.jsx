@@ -92,6 +92,7 @@ const Main = () => {
   };
 
   return (
+    <div className={style.mainbg}>
     <div>
       {visible && (
         <div className={style.boxbox}>
@@ -114,6 +115,7 @@ const Main = () => {
       <div>
         <Link to="/quizone">
           <img
+            id="modal1"
             src={q1imageSrc} 
             alt="quiz1"
             className={style.q1object}
@@ -155,6 +157,7 @@ const Main = () => {
       >
         초기화
       </button>
+    </div>
     </div>
   );
 };
