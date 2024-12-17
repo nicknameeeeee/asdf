@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import style from "./quiz3.module.css"
+import style from "./quiz3.module.css";
+import modal from "./question.png";
 
 const Main = () => {
 
@@ -61,60 +62,72 @@ const Main = () => {
       }
     }
 
-  return (
-    <div>
-      <nav>
-        <Link to="/">
-          <button className={style.main}>Go to main</button>
-        </Link>
-      </nav>
-
-      {/*잠금 코드*/}
-<div>
-      {lockvisible2 &&  
-      <div className={style.boxbox}>
-      <div className={style.describe}>
-          <input
-            className={style.password}
-            type="text"
-            placeholder="잠금"
-            value={lockinput}
-            onChange={lockChange}
-            onKeyDown={(e) => activeEnter2(e)}
-          />
-      <input type="button" value="입력" onClick={() => { 
-      activeButton2();
-      }}/>
-      </div>
-      </div>
-}
-
-      {/*문제 코드*/}
-      {visible2 && 
-            <div className={style.box}>
-            <h1 className={style.quiz}> 1 + 1 은?</h1>
+    return (
+      <div>
+        <div className={style.main}>
+            <img 
+              className={style.modal}
+              src={modal} 
+              alt="modal">
+              </img>
+              </div>
+  
+        <nav className={style.nav}>
+          <Link to="/">
+            <button>뒤로가기</button>
+          </Link>
+        </nav>
+        
+        {/*잠금 코드*/}
+      <div>
+        {lockvisible2 &&  
+        <div className={style.boxbox}>
+        <div className={style.describe}>
             <input
-              className={style.input}
+              className={style.password}
               type="text"
-              placeholder="으아아"
-              value={input}
-              onChange={Change}
-              onKeyDown={(e) => activeEnter(e)}
+              placeholder="잠금"
+              value={lockinput}
+              onChange={lockChange}
+              onKeyDown={(e) => activeEnter2(e)}
             />
-            <input
-            type="button"
-            value="으아아"
-            className={style.button}
-            onClick={() => { 
-            activeButton();
-            }}/>
+        <input 
+        className={style.password}
+        type="button" 
+        value="입력" 
+        onClick={() => { 
+        activeButton2();
+        }}/>
+        </div>
+        </div>
+  }
+  
+        {/*문제 코드*/}
+        {visible2 && 
+              <div className={style.question}>
+              <div className={style.box}>
+              <input
+                className={style.input}
+                type="text"
+                placeholder="정답을 입력해주세요"
+                value={input}
+                onChange={Change}
+                onKeyDown={(e) => activeEnter(e)}
+              />
+              <input
+              type="button"
+              value="정답 입력"
+              className={style.button}
+              onClick={() => { 
+              activeButton();
+              }}/>
+              </div>
             </div>
-}
-</div>
-
-    </div>
-
-  );
+  }
+  </div>
+      </div>
+  
+    );
 };
 
 export default Main;

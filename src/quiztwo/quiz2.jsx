@@ -64,11 +64,20 @@ const Main = () => {
 
   return (
     <div>
+      <div className={style.main}>
           <img 
             className={style.modal}
             src={modal} 
             alt="modal">
             </img>
+            </div>
+
+      <nav className={style.nav}>
+        <Link to="/">
+          <button>뒤로가기</button>
+        </Link>
+      </nav>
+      
       {/*잠금 코드*/}
     <div>
       {lockvisible1 &&  
@@ -82,7 +91,11 @@ const Main = () => {
             onChange={lockChange}
             onKeyDown={(e) => activeEnter2(e)}
           />
-      <input type="button" value="입력" onClick={() => { 
+      <input 
+      className={style.password}
+      type="button" 
+      value="입력" 
+      onClick={() => { 
       activeButton2();
       }}/>
       </div>
@@ -91,11 +104,8 @@ const Main = () => {
 
       {/*문제 코드*/}
       {visible1 && 
-            <div className={style.main}>
+            <div className={style.question}>
             <div className={style.box}>
-              <div className={style.content}>
-                으아아
-              </div>
             <input
               className={style.input}
               type="text"
@@ -114,11 +124,6 @@ const Main = () => {
             </div>
           </div>
 }
-<nav>
-        <Link to="/">
-          <button>뒤로가기</button>
-        </Link>
-      </nav>
 </div>
     </div>
 

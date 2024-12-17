@@ -32,7 +32,7 @@ const Main = () => {
     <div className={style.main}>
       <div className={style.box}>
         <div className={style.content}>
-          노래 가사 맞추기<br /> <br />오늘 밤은 삐딱하게 <br /> 내버려둬 <br />ㅁㅁㅁ ㅁ ㅁㅁㅁㅁ<br />아무도 없어, 다 의미 없어<br />사탕 발린 위로 따윈 집어치워<br />오늘 밤은 삐딱하게
+          노래 가사 맞추기<br /> <br />오늘 밤은 삐딱하게 <br /> 내버려둬 <br />OOO O OOOO<br />아무도 없어, 다 의미 없어<br />사탕 발린 위로 따윈 집어치워<br />오늘 밤은 삐딱하게
         </div>
       <img 
       className={style.modal}
