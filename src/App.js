@@ -5,6 +5,7 @@ import Quiz1 from "./quizone/quiz1"
 import Quiz2 from "./quiztwo/quiz2"
 import Quiz3 from "./quizthree/quiz3"
 import Quiz4 from "./quizfour/quiz4"
+import Quiz5 from "./quizfive/quiz5"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route element={<Quiz2 />} path="/quiztwo"></Route>
           <Route element={<Quiz3 />} path="/quizthree"></Route>
           <Route element={<Quiz4 />} path="/quizfour"></Route>
+          <Route element={<Quiz5 />} path="/quizfive"></Route>
         </Routes>
       </BrowserRouter>
     </div>

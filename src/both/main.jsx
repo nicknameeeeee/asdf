@@ -9,6 +9,8 @@ import q3object from './q3object.png';
 import q3objectHover from './q3object2.png';
 import q4object from './q4object.png';
 import q4objectHover from './q4object2.png';
+import q5object from './q5object.png';
+import q5objectHover from './q5object2.png'
 
 const Main = () => {
   /* 게임 설명 */
@@ -23,6 +25,7 @@ const Main = () => {
   const [q2imageSrc, setq2ImageSrc] = useState(q2object);
   const [q3imageSrc, setq3ImageSrc] = useState(q3object);
   const [q4imageSrc, setq4ImageSrc] = useState(q4object);
+  const [q5imageSrc, setq5ImageSrc] = useState(q5object);
   const max = text.length;
 
   const changeText = () => {
@@ -56,6 +59,7 @@ const Main = () => {
     sessionStorage.setItem('visible2', 'false');
     sessionStorage.setItem('lockvisible3', 'true');
     sessionStorage.setItem('visible3', 'false');
+    sessionStorage.setItem('health', '5')
   };
 
   // 이미지 테두리
@@ -89,6 +93,13 @@ const Main = () => {
 
   const q4MouseLeave = () => {
     setq4ImageSrc(q4object); 
+  };
+  const q5MouseEnter = () => {
+    setq5ImageSrc(q5objectHover);
+  };
+
+  const q5MouseLeave = () => {
+    setq5ImageSrc(q5object); 
   };
 
   return (
@@ -148,6 +159,15 @@ const Main = () => {
             className={style.q4object}
             onMouseEnter={q4MouseEnter} 
             onMouseLeave={q4MouseLeave} 
+          />
+        </Link>
+        <Link to="/quizfive">
+        <img
+            src={q5imageSrc}
+            alt="quiz5"
+            className={style.q5object}
+            onMouseEnter={q5MouseEnter} 
+            onMouseLeave={q5MouseLeave} 
           />
         </Link>
       </div>
