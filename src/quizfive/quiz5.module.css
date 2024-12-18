@@ -83,6 +83,9 @@
   background-color: #0056b3;
 }
 
+.content {
+  position: fixed;
+}
 .nav {
   position: fixed; 
   top: 90%; 

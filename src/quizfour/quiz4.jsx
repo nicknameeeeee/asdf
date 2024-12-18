@@ -10,21 +10,29 @@ const CanvasGame = () => {
   const [canvasHeight, setCanvasHeight] = useState(window.innerHeight);
   const animationFrameId = useRef(null); // 애니메이션 ID 저장
   const [health, setHealth] = useState(() => {
-    // sessionStorage에서 health 값을 불러오기
-    const storedHealth = sessionStorage.getItem('health');
-    return storedHealth ? parseInt(storedHealth, 10) : 5; // 값이 없으면 기본값 5
+    const storedHealth = sessionStorage.getItem("health");
+    return storedHealth ? parseInt(storedHealth, 10) : 5; // 기본값 5
   });
-  const [visible3, setVisible3] = useState(sessionStorage.getItem('visible3') !== 'false');
-  const [nowIndex, setNowIndex] = useState(0); // 현재 텍스트 인덱스 상태 추가
+  const [visible3, setVisible3] = useState(sessionStorage.getItem("visible3") !== "false");
+  const [nowIndex, setNowIndex] = useState(() => {
+    const storedIndex = sessionStorage.getItem("nowIndex");
+    return storedIndex ? parseInt(storedIndex, 10) : 0; // 기본값 0
+  });
   const text = [
-    "가시받긿 웋로 ᄃᆞᆯ녀 너는 나ᄅᆞᆯ 자극하야\n거즛으로 가득찬 잔치ᄀᆞ랍지도 않아\n나의 뒤헤 말들이 만ᄒᆞ야 나도 첨 듣는 내 원수\n모도 기원해 내 추락 그 손 우희로 ꥢᅱ어ᄂᆞ랴\n그라, 주라\n걸어라 ᄉᆞᅀᆞᄀᆞ튼 위엄으로",
+    "귀신이 중얼거립니다...",
+    "나 녀는 거 보니\n吟風弄月(음풍농월)\n비취 ᄆᆞᆯ\n하 동동...",
   ]; // 게임 설명 텍스트
   const max = text.length;
 
   // 체력 상태가 변경될 때마다 sessionStorage에 저장
   useEffect(() => {
-    sessionStorage.setItem('health', health); // 체력이 변경될 때마다 sessionStorage에 저장
+    sessionStorage.setItem("health", health);
   }, [health]);
+
+  // nowIndex가 변경될 때 sessionStorage에 저장
+  useEffect(() => {
+    sessionStorage.setItem("nowIndex", nowIndex);
+  }, [nowIndex]);
 
   // 창 크기 업데이트
   useEffect(() => {
@@ -60,7 +68,8 @@ const CanvasGame = () => {
       setImage(null); // 체력이 0이면 이미지 제거
       setVisible3(true); // 체력이 0일 때 boxbox 보이기
     }
-  }, [canvasWidth, canvasHeight, health]); // health를 의존성 배열에 추가
+    // eslint-disable-next-line
+  }, [canvasWidth, canvasHeight, health]);
 
   // 이미지 렌더링
   const drawImage = (ctx) => {
@@ -94,6 +103,7 @@ const CanvasGame = () => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
+    // eslint-disable-next-line
   }, [image, canvasWidth, canvasHeight, health]);
 
   // 클릭 이벤트 처리
@@ -115,6 +125,7 @@ const CanvasGame = () => {
         const newHealth = Math.max(prevHealth - 1, 0); // 체력 감소, 최소값 0
         if (newHealth === 0) {
           alert("유령을 잡았습니다!");
+          sessionStorage.setItem('part4', '1')
           setVisible3(true); // 체력이 0일 때만 boxbox 보이기
         }
         return newHealth;
@@ -173,6 +184,7 @@ const CanvasGame = () => {
     return () => {
       window.removeEventListener("keydown", spaceOn);
     };
+    // eslint-disable-next-line
   }, [nowIndex]);
 
   return (
@@ -197,12 +209,14 @@ const CanvasGame = () => {
       {visible3 && (
         <div className={style.boxbox}>
           <div className={style.describe}>
-            {text[nowIndex].split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))}
+            <div className={style.content}>
+              {text[nowIndex].split("\n").map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </div>
           </div>
           <input
             type="button"

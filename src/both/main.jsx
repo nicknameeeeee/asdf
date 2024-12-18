@@ -60,6 +60,11 @@ const Main = () => {
     sessionStorage.setItem('lockvisible3', 'true');
     sessionStorage.setItem('visible3', 'false');
     sessionStorage.setItem('health', '5')
+    sessionStorage.setItem('nowIndex', '0')
+    sessionStorage.setItem('part1', '0')
+    sessionStorage.setItem('part2', '0')
+    sessionStorage.setItem('part3', '0')
+    sessionStorage.setItem('part4', '0')
   };
 
   // 이미지 테두리
@@ -103,17 +108,48 @@ const Main = () => {
   };
 
   return (
+    
+/*나ᄂᆞᆫ 초신성 가ᄐᆞᆫ 존재이니
+전전긍긍
+나 녀는거 보니
+음풍농월
+비취 ᄆᆞᆯ
+하 동동
+문 개야
+ᄃᆞ로의 ᄒᆞᆫ ᄌᆞ랄 알오
+마치 어긋남
+나ᄅᆞᆯ 닮은 님 누구뇨
+ᄋᆞᆯ은 닐어오 아으
+머흘게 ᄒᆞ다 아으*/
+
+/*가시받긿 웋로 ᄃᆞᆯ녀 너는 나ᄅᆞᆯ 자극하야
+거즛으로 가득찬 잔치ᄀᆞ랍지도 않아
+나의 뒤헤 말들이 만ᄒᆞ야 나도 첨 듣는 내 원수
+모도 기원해 내 추락 그 손 우희로 ꥢᅱ어ᄂᆞ랴
+그라, 주라
+걸어라 ᄉᆞᅀᆞᄀᆞ튼 위엄으로 */
+
+/*ᄆᆞᅀᆞᆷ 여디 말오 드러내디 말오
+착ᄒᆞᆫ 양ᄌᆞ 샹녜 뵈여주며
+텰더케 숨기니 드러나더라
+다 니저 다  니저 이제 ᄎᆞᆷ디 아니호리라
+다 니저 다 니저 ~을 열오 나가오리라
+괴이티 아니ᄒᆞᄂᆞ다 뉘 므스기라 ᄒᆞ야도
+폭풍 모라텨도 쥬위는 두립디 아니ᄒᆞ니
+거리ㄹ 두고 보면 모ᄃᆞᆫ 거시 쟈가뵈니 */
     <div className={style.mainbg}>
     <div>
       {visible && (
         <div className={style.boxbox}>
           <div className={style.describe}>
+            <div className={style.content}>
             {text[nowindex].split("\n").map((line, index) => (
               <React.Fragment key={index}>
                 {line}
                 <br />
               </React.Fragment>
             ))}
+          </div>
           </div>
           <input
             type="button"
@@ -183,3 +219,4 @@ const Main = () => {
 };
 
 export default Main;
+

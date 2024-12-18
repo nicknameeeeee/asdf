@@ -5,7 +5,6 @@ import modal from './question.png'
 
 const Main = () => {
   const [input, setInputValue] = useState(""); 
-
   const Change = (e) => {
     setInputValue(e.target.value);
   };
@@ -14,8 +13,9 @@ const Main = () => {
     const answer = "어차피 난 혼자였지";
     if (input === answer) {
       alert("정답입니다! \n\n 다음 문제의 비밀번호는 1234입니다.");
+      sessionStorage.setItem('part1', '1')
     } else {
-      alert("wrong");
+      alert("틀렸습니다!");
     }
   };
 

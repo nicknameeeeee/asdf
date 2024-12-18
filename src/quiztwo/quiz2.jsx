@@ -19,6 +19,7 @@ const Main = () => {
     const answer = "똑똑핑";
     if (input === answer) {
       alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.");
+      sessionStorage.setItem('part2W', '1')
     } else {
       alert("틀렸습니다! 다시 시도하세요.");
     }
