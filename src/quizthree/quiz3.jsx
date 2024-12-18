@@ -18,7 +18,7 @@ const Main = () => {
   const getValueInText = () => {
     const answer = "보조개";
     if (input === answer) {
-      alert("정답입니다! \n\n 다음 문제의 비밀번호는 3456입니다.");
+      alert("정답입니다! \n\n 다음 문제의 비밀번호는 3456입니다.\n\n최종 문제의 일부분을 찾았습니다!\n\nᄋᆞᆯ은 닐어오\n머흘게 ᄒᆞ다 아으");
       sessionStorage.setItem('part3', '1')
     } else {
       alert("틀렸습니다! 다시 시도하세요.");

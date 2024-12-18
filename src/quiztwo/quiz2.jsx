@@ -18,8 +18,8 @@ const Main = () => {
   const getValueInText = () => {
     const answer = "똑똑핑";
     if (input === answer) {
-      alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.");
-      sessionStorage.setItem('part2W', '1')
+      alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.\n\n 최종 문제의 일부분을 찾았습니다!\n\n문 개야\nᄃᆞ로의 ᄒᆞᆫ ᄌᆞ랄 알오\n마치 어긋남\n나ᄅᆞᆯ 닮은 님 누구뇨");
+      sessionStorage.setItem('part2', '1')
     } else {
       alert("틀렸습니다! 다시 시도하세요.");
     }

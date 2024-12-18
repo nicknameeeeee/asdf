@@ -65,6 +65,7 @@ const Main = () => {
     sessionStorage.setItem('part2', '0')
     sessionStorage.setItem('part3', '0')
     sessionStorage.setItem('part4', '0')
+    sessionStorage.setItem('desc', 'true')
   };
 
   // 이미지 테두리

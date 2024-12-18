@@ -20,14 +20,24 @@ const CanvasGame = () => {
   });
   const text = [
     "귀신이 중얼거립니다...",
-    "나 녀는 거 보니\n吟風弄月(음풍농월)\n비취 ᄆᆞᆯ\n하 동동...",
+    "나ᄂᆞᆫ 초신성 가ᄐᆞᆫ 존재이니\n전전긍긍.",
   ]; // 게임 설명 텍스트
+  const [desc, setdesc] = useState(sessionStorage.getItem('desc') !== 'false');
+  const [what, setWhat] = useState(0)
+  const describle = [
+    "서당 구석에서 귀신을 찾았습니다!",
+    "마우스 커서로 귀신을 잡으면 힌트를 얻을 수 있을지도...?"
+  ]
   const max = text.length;
 
   // 체력 상태가 변경될 때마다 sessionStorage에 저장
   useEffect(() => {
     sessionStorage.setItem("health", health);
   }, [health]);
+
+  useEffect(() =>{
+    console.log(nowIndex)
+  })
 
   // nowIndex가 변경될 때 sessionStorage에 저장
   useEffect(() => {
@@ -73,7 +83,7 @@ const CanvasGame = () => {
 
   // 이미지 렌더링
   const drawImage = (ctx) => {
-    if (!image) return; // 체력이 0이면 이미지를 그리지 않음
+    if (!image) return; // 체력이 0일 때 이미지를 그리지 않음
     const img = new Image();
     img.src = ghost;
 
@@ -124,7 +134,7 @@ const CanvasGame = () => {
       setHealth((prevHealth) => {
         const newHealth = Math.max(prevHealth - 1, 0); // 체력 감소, 최소값 0
         if (newHealth === 0) {
-          alert("유령을 잡았습니다!");
+          alert("귀신을 잡았습니다!");
           sessionStorage.setItem('part4', '1')
           setVisible3(true); // 체력이 0일 때만 boxbox 보이기
         }
@@ -172,6 +182,15 @@ const CanvasGame = () => {
     }
   };
 
+  const changeText2 = () => {
+    if (what < describle.length - 1) {
+      setWhat((prevIndex) => prevIndex + 1);
+    } else {
+      setdesc(false); // desc 상태를 false로 변경
+      sessionStorage.setItem('desc', 'false'); // sessionStorage에도 false로 저장
+    }
+  };
+
   // 스페이스바 눌렀을 때 텍스트 변경
   const spaceOn = (e) => {
     if (e.code === "Space") {
@@ -179,14 +198,32 @@ const CanvasGame = () => {
     }
   };
 
+  // 스페이스바 눌렀을 때 텍스트 변경
+  const spaceOn2 = (e) => {
+    if (e.code === "Space") {
+      changeText2();
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("keydown", spaceOn);
+    if (health === 0) {
+      // health가 0일 때만 키 이벤트를 추가
+      window.addEventListener("keydown", spaceOn);
+  
+      // 컴포넌트 언마운트 시 또는 health가 0이 아닐 때 키 이벤트 리스너 제거
+      return () => {
+        window.removeEventListener("keydown", spaceOn);
+      };
+    }
+  }, [health, nowIndex]); // health와 nowIndex가 변경될 때마다 effect 실행
+  
+  useEffect(() => {
+    window.addEventListener("keydown", spaceOn2);
     return () => {
-      window.removeEventListener("keydown", spaceOn);
+      window.removeEventListener("keydown", spaceOn2);
     };
     // eslint-disable-next-line
-  }, [nowIndex]);
-
+  }, [what]);
   return (
     <div className={style.body}>
       <nav className={style.nav}>
@@ -206,6 +243,26 @@ const CanvasGame = () => {
         }}
         onClick={handleCanvasClick}
       />
+      {desc && (  // desc가 true일 때만 렌더링
+        <div className={style.boxbox}>
+          <div className={style.describe}>
+            <div className={style.content}>
+              {(describle[what] || '').split("\n").map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+          <input
+            type="button"
+            value="텍스트 변경"
+            onClick={changeText2}
+            className={style.nexttext}
+          />
+        </div>
+      )}
       {visible3 && (
         <div className={style.boxbox}>
           <div className={style.describe}>

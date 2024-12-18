@@ -11,17 +11,25 @@ const Main = () => {
 
   const [input, setInputValue] = useState("");
 
-  const part1 = ["문장1", "문장2"];
-  const part2 = ["문장1", "문장2"];
-  const part3 = ["문장1", "문장2"];
-  const part4 = ["문장1", "문장2"];
+  const part1 = [
+    "ㅁㅁ ㅁㅁㅁ ㅁㅁ ㅁㅁㅁㅁ\nㅁㅁㅁㅁ",
+    "나ᄂᆞᆫ 초신성 가ᄐᆞᆫ 존재이니\n전전긍긍"];
+  const part2 = [
+    "ㅁ ㅁㅁ ㅁ ㅁㅁ\nㅁㅁㅁㅁ\nㅁㅁ ㅁ\nㅁ ㅁㅁ",
+    "나 녀는 거 보니\n吟風弄月(음풍농월)\n비취 ᄆᆞᆯ\n하 동동"];
+  const part3 = [
+    "ㅁ ㅁㅁ\nㅁㅁㅁ ㅁ ㅁㅁ ㅁㅁ\nㅁㅁ ㅁㅁㅁ\nㅁㅁ ㅁㅁ ㅁ ㅁㅁㅁㅁ",
+    "문 개야\nᄃᆞ로의 ᄒᆞᆫ ᄌᆞ랄 알오\n마치 어긋남\n나ᄅᆞᆯ 닮은 님 누구뇨"];
+  const part4 = [
+    "ㅁㅁ ㅁㅁㅁ\nㅁㅁㅁ ㅁㅁ ㅁㅁ",
+    "ᄋᆞᆯ은 닐어오\n머흘게 ᄒᆞ다 아으"];
 
   const Change = (e) => {
     setInputValue(e.target.value);
   };
 
   const getValueInText = () => {
-    const answer = "으아아";
+    const answer = "supernova";
     if (input === answer) {
       alert("정답입니다! \n\n 탈출에 성공하셨습니다!");
     }
@@ -53,25 +61,25 @@ const Main = () => {
         <div className={style.question}>
           <div className={style.content}>
             {/* 각 파트별로 텍스트를 조건에 따라 렌더링 */}
-            {part1[p1what]?.split("\n").map((line, index) => (
+            {part1[p4what]?.split("\n").map((line, index) => (
               <React.Fragment key={`part1-${index}`}>
                 {line}
                 <br />
               </React.Fragment>
             ))}
-            {part2[p2what]?.split("\n").map((line, index) => (
+            {part2[p1what]?.split("\n").map((line, index) => (
               <React.Fragment key={`part2-${index}`}>
                 {line}
                 <br />
               </React.Fragment>
             ))}
-            {part3[p3what]?.split("\n").map((line, index) => (
+            {part3[p2what]?.split("\n").map((line, index) => (
               <React.Fragment key={`part3-${index}`}>
                 {line}
                 <br />
               </React.Fragment>
             ))}
-            {part4[p4what]?.split("\n").map((line, index) => (
+            {part4[p3what]?.split("\n").map((line, index) => (
               <React.Fragment key={`part4-${index}`}>
                 {line}
                 <br />
