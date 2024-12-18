@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./quiz2.module.css";
 import modal from './question.png';
+import genious from './genious.webp';
 
 const Main = () => {
 
@@ -15,7 +16,7 @@ const Main = () => {
   };
 
   const getValueInText = () => {
-    const answer = "2";
+    const answer = "똑똑핑";
     if (input === answer) {
       alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.");
     } else {
@@ -105,6 +106,8 @@ const Main = () => {
       {/*문제 코드*/}
       {visible1 && 
             <div className={style.question}>
+              <div className={style.content}>다음 캐릭터의 이름은?</div>
+              <img src={genious} className={style.ping} alt="pingping"></img>
             <div className={style.box}>
             <input
               className={style.input}

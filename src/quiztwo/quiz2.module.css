@@ -46,21 +46,40 @@
 }
 
 .question {
-  position: absolute;
+  position: fixed;
+  margin-top: -15rem;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 10000;
 }
+
+.content {
+  width: 50rem;
+  position: fixed;
+  display: inline;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-family: 'SuseongHyejeong';
+}
+
+.ping {
+  width: 30rem;
+  margin-top: 2rem;
+}
+
+.box {
+  margin-top: 10rem;
+}
 .input {
-  margin-top: -5rem;
   font-size: 2rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   padding: 0.5rem;
   width: 80%;
-  margin: 1rem 0;
+  margin: 1rem;
 }
 
 .input::placeholder {
@@ -85,7 +104,7 @@
 
 .nav {
   position: fixed; 
-  top: 90%; 
+  top: 95%; 
   left: 50%; 
   transform: translate(-50%, -50%);
   display: flex;

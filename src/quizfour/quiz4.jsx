@@ -41,7 +41,7 @@ const Main = () => {
     };
 
     const password = () => {
-      const psword = "1234";
+      const psword = "3456";
       if (lockinput === psword) {
         setlockvisible3(false)
         sessionStorage.setItem('lockvisible3', 'false');

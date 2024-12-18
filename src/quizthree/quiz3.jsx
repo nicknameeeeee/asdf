@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./quiz3.module.css";
-import modal from "./question.png";
+import modal from './question.png';
+import genious from './pic_quiz.jpg';
 
 const Main = () => {
 
@@ -15,9 +16,9 @@ const Main = () => {
   };
 
   const getValueInText = () => {
-    const answer = "으아아";
+    const answer = "보조개";
     if (input === answer) {
-      alert("정답입니다! \n\n 다음 문제의 비밀번호는 2345입니다.");
+      alert("정답입니다! \n\n 다음 문제의 비밀번호는 3456입니다.");
     } else {
       alert("틀렸습니다! 다시 시도하세요.");
     }
@@ -62,72 +63,74 @@ const Main = () => {
       }
     }
 
-    return (
-      <div>
-        <div className={style.main}>
-            <img 
-              className={style.modal}
-              src={modal} 
-              alt="modal">
-              </img>
-              </div>
-  
-        <nav className={style.nav}>
-          <Link to="/">
-            <button>뒤로가기</button>
-          </Link>
-        </nav>
-        
-        {/*잠금 코드*/}
-      <div>
-        {lockvisible2 &&  
-        <div className={style.boxbox}>
-        <div className={style.describe}>
-            <input
-              className={style.password}
-              type="text"
-              placeholder="잠금"
-              value={lockinput}
-              onChange={lockChange}
-              onKeyDown={(e) => activeEnter2(e)}
-            />
-        <input 
-        className={style.password}
-        type="button" 
-        value="입력" 
-        onClick={() => { 
-        activeButton2();
-        }}/>
-        </div>
-        </div>
-  }
-  
-        {/*문제 코드*/}
-        {visible2 && 
-              <div className={style.question}>
-              <div className={style.box}>
-              <input
-                className={style.input}
-                type="text"
-                placeholder="정답을 입력해주세요"
-                value={input}
-                onChange={Change}
-                onKeyDown={(e) => activeEnter(e)}
-              />
-              <input
-              type="button"
-              value="정답 입력"
-              className={style.button}
-              onClick={() => { 
-              activeButton();
-              }}/>
-              </div>
+  return (
+    <div>
+      <div className={style.main}>
+          <img 
+            className={style.modal}
+            src={modal} 
+            alt="modal">
+            </img>
             </div>
-  }
-  </div>
+
+      <nav className={style.nav}>
+        <Link to="/">
+          <button>뒤로가기</button>
+        </Link>
+      </nav>
+      
+      {/*잠금 코드*/}
+    <div>
+      {lockvisible2 &&  
+      <div className={style.boxbox}>
+      <div className={style.describe}>
+          <input
+            className={style.password}
+            type="text"
+            placeholder="잠금"
+            value={lockinput}
+            onChange={lockChange}
+            onKeyDown={(e) => activeEnter2(e)}
+          />
+      <input 
+      className={style.password}
+      type="button" 
+      value="입력" 
+      onClick={() => { 
+      activeButton2();
+      }}/>
       </div>
-  
-    );
+      </div>
+}
+
+      {/*문제 코드*/}
+      {visible2 && 
+            <div className={style.question}>
+              <div className={style.content}>빈 칸에 들어갈 단어는?</div>
+              <img src={genious} className={style.ping} alt="으아아"></img>
+            <div className={style.box}>
+            <input
+              className={style.input}
+              type="text"
+              placeholder="정답을 입력해주세요"
+              value={input}
+              onChange={Change}
+              onKeyDown={(e) => activeEnter(e)}
+            />
+            <input
+            type="button"
+            value="정답 입력"
+            className={style.button}
+            onClick={() => { 
+            activeButton();
+            }}/>
+            </div>
+          </div>
+}
+</div>
+    </div>
+
+  );
 };
 
 export default Main;
