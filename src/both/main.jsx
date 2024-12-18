@@ -15,7 +15,7 @@ import q5objectHover from './q5object2.png'
 const Main = () => {
   /* 게임 설명 */
   const text = [
-    "설명 1",
+    "타임머신을 연구하던 연구원이었던 당신은 개발한 타임머신의 성능을 시험해보기 위해 타임머신을 직접 타보기로 했습니다.\n뭐라고 써야 하지",
     "설명 2"
   ];
 
