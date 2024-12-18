@@ -59,6 +59,13 @@ body {
 .q4object {
     display: flex;
     position: absolute;
+    margin-left: 20rem;
+    margin-top: 24rem;
+    width: 13rem;
+}
+.q5object {
+    display: flex;
+    position: absolute;
     margin-left: 79rem;
     margin-top: 44rem;
     width: 10rem;
