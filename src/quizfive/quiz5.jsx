@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./quiz5.module.css";
 import modal from "./question.png";
 
@@ -10,7 +10,7 @@ const Main = () => {
   const [p4what] = useState(Number(sessionStorage.getItem("part4")) || 0);
 
   const [input, setInputValue] = useState("");
-
+  const navigate = useNavigate();
   const part1 = [
     "ㅁㅁ ㅁㅁㅁ ㅁㅁ ㅁㅁㅁㅁ\nㅁㅁㅁㅁ",
     "나ᄂᆞᆫ 초신성 가ᄐᆞᆫ 존재이니\n전전긍긍"];
@@ -31,7 +31,7 @@ const Main = () => {
   const getValueInText = () => {
     const answer = "supernova";
     if (input === answer) {
-      alert("정답입니다! \n\n 탈출에 성공하셨습니다!");
+      navigate("/escape");
     }
   };
 
@@ -60,6 +60,7 @@ const Main = () => {
       <div>
         <div className={style.question}>
           <div className={style.content}>
+          <div className={style.what}>곡 제목 맞추기</div>
             {/* 각 파트별로 텍스트를 조건에 따라 렌더링 */}
             {part1[p4what]?.split("\n").map((line, index) => (
               <React.Fragment key={`part1-${index}`}>

@@ -18,7 +18,7 @@ const Main = () => {
   const getValueInText = () => {
     const answer = "보조개";
     if (input === answer) {
-      alert("정답입니다! \n\n 다음 문제의 비밀번호는 3456입니다.\n\n최종 문제의 일부분을 찾았습니다!\n\nᄋᆞᆯ은 닐어오\n머흘게 ᄒᆞ다 아으");
+      alert("정답입니다! \n\n 다음 문제의 비밀번호는 2g5zp 입니다.\n\n최종 문제의 일부분을 찾았습니다!\n\nᄋᆞᆯ은 닐어오\n머흘게 ᄒᆞ다 아으");
       sessionStorage.setItem('part3', '1')
     } else {
       alert("틀렸습니다! 다시 시도하세요.");
@@ -43,7 +43,7 @@ const Main = () => {
     };
 
     const password = () => {
-      const psword = "2345";
+      const psword = "03241";
       if (lockinput === psword) {
         setlockvisible2(false)
         sessionStorage.setItem('lockvisible2', 'false');
@@ -85,6 +85,9 @@ const Main = () => {
       {lockvisible2 &&  
       <div className={style.boxbox}>
       <div className={style.describe}>
+      <div className={style.pass}>
+          암호 : 숫자 5자리
+        </div>
           <input
             className={style.password}
             type="text"

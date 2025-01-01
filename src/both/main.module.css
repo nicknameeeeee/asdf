@@ -12,12 +12,12 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 40rem;
+    font-family: "SuseongHyejeong";
 }
 
 .describe {
     box-shadow: 3px 3px 5px 3px #dadce0;
     border-radius: 0.5rem;
-    margin: 5rem;
     padding: 0.3rem 0.5rem;
     width: 80rem;
     height: 50rem;
@@ -25,6 +25,7 @@ body {
     display: flex;
     font-size: 1.3rem;
     background-color: white;
+    font-size: 1.5rem;
 }
 
 .content {
@@ -40,6 +41,14 @@ body {
     display: flex;
 }
 
+.space {
+    position: fixed;
+    font-family: "SuseongHyejeong";
+    font-size: 2rem;
+    top: 73%;
+    left: 65.5%;
+    transform: translate(-50%, -50%);
+}
 .q1object {
     display: flex;
     position: absolute;
@@ -84,5 +93,5 @@ body {
 }
 .reset {
     float: right;
-    margin-top: 53%;
+    margin-top: 54.5%;
 }

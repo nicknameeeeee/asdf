@@ -13,7 +13,7 @@ const CanvasGame = () => {
     const storedHealth = sessionStorage.getItem("health");
     return storedHealth ? parseInt(storedHealth, 10) : 5; // 기본값 5
   });
-  const [visible3, setVisible3] = useState(sessionStorage.getItem("visible3") !== "false");
+  
   const [nowIndex, setNowIndex] = useState(() => {
     const storedIndex = sessionStorage.getItem("nowIndex");
     return storedIndex ? parseInt(storedIndex, 10) : 0; // 기본값 0
@@ -22,22 +22,55 @@ const CanvasGame = () => {
     "귀신이 중얼거립니다...",
     "나ᄂᆞᆫ 초신성 가ᄐᆞᆫ 존재이니\n전전긍긍.",
   ]; // 게임 설명 텍스트
-  const [desc, setdesc] = useState(sessionStorage.getItem('desc') !== 'false');
-  const [what, setWhat] = useState(0)
+  const [desc, setdesc] = useState(JSON.parse(sessionStorage.getItem('desc')) || false); // 수정된 부분
+  const [what, setWhat] = useState(0);
   const describle = [
     "서당 구석에서 귀신을 찾았습니다!",
     "마우스 커서로 귀신을 잡으면 힌트를 얻을 수 있을지도...?"
-  ]
+  ];
   const max = text.length;
+  
+  const [visible3, setVisible3] = useState(sessionStorage.getItem("visible3") !== "false");
+  const [main, setmain] = useState(sessionStorage.getItem("main") !== "false");
+  const [lockvisible3, setlockvisible3] = useState(sessionStorage.getItem('lockvisible3') !== 'false');
+  const [lockinput, setlockinput] = useState("");
+
+  const lockChange = (e) => {
+    setlockinput(e.target.value);
+  };
+
+  const password = () => {
+    const psword = "2g5zp";
+    if (lockinput === psword) {
+      setlockvisible3(false);
+      sessionStorage.setItem('lockvisible3', 'false');
+      setmain(true);
+      setdesc(true);
+      sessionStorage.setItem('main', 'true');
+      alert("잠금이 해제되었습니다.");
+    } else {
+      alert("비밀번호가 틀렸습니다!");
+    }
+  };
+
+  const activeButton2 = () => {
+    password();
+  };
+
+  const activeEnter2 = (e) => {
+    if(e.key === "Enter") {
+      activeButton2();
+    }
+  };
 
   // 체력 상태가 변경될 때마다 sessionStorage에 저장
   useEffect(() => {
     sessionStorage.setItem("health", health);
   }, [health]);
 
-  useEffect(() =>{
-    console.log(nowIndex)
-  })
+  useEffect(() => {
+    console.log(desc);
+  });
 
   // nowIndex가 변경될 때 sessionStorage에 저장
   useEffect(() => {
@@ -135,7 +168,7 @@ const CanvasGame = () => {
         const newHealth = Math.max(prevHealth - 1, 0); // 체력 감소, 최소값 0
         if (newHealth === 0) {
           alert("귀신을 잡았습니다!");
-          sessionStorage.setItem('part4', '1')
+          sessionStorage.setItem('part4', '1');
           setVisible3(true); // 체력이 0일 때만 boxbox 보이기
         }
         return newHealth;
@@ -215,6 +248,7 @@ const CanvasGame = () => {
         window.removeEventListener("keydown", spaceOn);
       };
     }
+     // eslint-disable-next-line
   }, [health, nowIndex]); // health와 nowIndex가 변경될 때마다 effect 실행
   
   useEffect(() => {
@@ -224,6 +258,7 @@ const CanvasGame = () => {
     };
     // eslint-disable-next-line
   }, [what]);
+
   return (
     <div className={style.body}>
       <nav className={style.nav}>
@@ -231,18 +266,31 @@ const CanvasGame = () => {
           <button>뒤로가기</button>
         </Link>
       </nav>
-      {renderHealthBar()}
-      <canvas
-        ref={canvasRef}
-        width={canvasWidth}
-        height={canvasHeight}
-        style={{
-          display: "block",
-          cursor: "pointer",
-          margin: 0, // 추가 여백 방지
-        }}
-        onClick={handleCanvasClick}
-      />
+
+      {lockvisible3 &&  
+      <div className={style.boxbox}>
+      <div className={style.describe}>
+      <div className={style.pass}>
+          암호 : 영문과 숫자 5자리
+        </div>
+          <input
+            className={style.password}
+            type="text"
+            placeholder="잠금"
+            value={lockinput}
+            onChange={lockChange}
+            onKeyDown={(e) => activeEnter2(e)}
+          />
+      <input 
+      className={style.password2}
+      type="button" 
+      value="입력" 
+      onClick={() => { 
+      activeButton2();
+      }}/></div>
+      </div>
+      }
+
       {desc && (  // desc가 true일 때만 렌더링
         <div className={style.boxbox}>
           <div className={style.describe}>
@@ -263,6 +311,23 @@ const CanvasGame = () => {
           />
         </div>
       )}
+{main && (
+  <>
+    {renderHealthBar()} {/* renderHealthBar() 함수 호출 */}
+    <canvas
+      ref={canvasRef}
+      width={canvasWidth}
+      height={canvasHeight}
+      style={{
+        display: "block",
+        cursor: "pointer",
+        margin: 0, // 추가 여백 방지
+      }}
+      onClick={handleCanvasClick}
+    />
+  </>
+)}
+
       {visible3 && (
         <div className={style.boxbox}>
           <div className={style.describe}>
@@ -274,6 +339,7 @@ const CanvasGame = () => {
                 </React.Fragment>
               ))}
             </div>
+            <div className={style.space}>SPACE 키를 눌러 계속 진행하세요</div>
           </div>
           <input
             type="button"

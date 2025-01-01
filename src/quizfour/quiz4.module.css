@@ -27,6 +27,40 @@
     font-size: 1.3rem;
     background-color: white;
     backdrop-filter: blur(10px);
+    font-size: 3rem;
+    width: 100rem;
+    font-family: "SuseongHyejeong";
+}
+
+.password {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.password2 {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.pass {
+    position: fixed;
+    left: 41%;
+    top: 30%;
+    font-family: "SuseongHyejeong";
+    font-size: 2rem;
+  }
+
+  .space {
+    position: fixed;
+    font-family: "SuseongHyejeong";
+    font-size: 2rem;
+    top: 73%;
+    left: 65.5%;
+    transform: translate(-50%, -50%);
 }
 
 .nexttext {

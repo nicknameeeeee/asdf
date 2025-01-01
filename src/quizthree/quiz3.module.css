@@ -45,6 +45,11 @@
   background-color: #dadce0;
 }
 
+.pass {
+  font-family: "SuseongHyejeong";
+  font-size: 2rem;
+}
+
 .question {
   position: fixed;
   margin-top: -15rem;

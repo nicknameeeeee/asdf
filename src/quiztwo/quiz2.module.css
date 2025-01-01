@@ -36,9 +36,14 @@
   z-index: 2; 
 }
 
+.pass {
+  font-family: "SuseongHyejeong";
+  font-size: 2rem;
+}
 .password {
   border-radius: 5px;
   font-size: 2rem;
+  font-family: "SuseongHyejeong";
 }
 
 .password:hover {

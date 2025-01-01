@@ -65,7 +65,7 @@ const Main = () => {
     sessionStorage.setItem('part2', '0')
     sessionStorage.setItem('part3', '0')
     sessionStorage.setItem('part4', '0')
-    sessionStorage.setItem('desc', 'true')
+    sessionStorage.setItem('desc', 'false')
   };
 
   // 이미지 테두리
@@ -151,6 +151,7 @@ const Main = () => {
               </React.Fragment>
             ))}
           </div>
+          <div className={style.space}>SPACE 키를 눌러 계속 진행하세요</div>
           </div>
           <input
             type="button"
